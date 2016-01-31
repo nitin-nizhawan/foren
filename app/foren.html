@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The Scala.js Tutorial</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <script src="jquery-2.2.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"></div><div class="col-sm-1"><span style="font-size:16pt;font-weight:bold;">Foren</span></div>
+      <div class="col-sm-6">
+            <input id="expinp" class="form-control" onkeypress="updateexp()" style="width:100%;" placeholder="Type expression here, e.g. P * 1+ r/100 ^ n " />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3"></div>
+    <div class="col-sm-6">     
+         <pre id="disp"></pre>
+    </div>
+    </div>
+  </div>
+    <script type="text/javascript" src="../target/nitin-nizhawan-foren.js"></script>
+    <script type="text/javascript">
+      var formatter = com.github.nitin.nizhawan.main.Foren();
+      function updateexp(){
+         var i = $("#expinp");
+         var v = i.val();
+         try{
+           var fstr = formatter.test(v);   
+           $("#disp").html(fstr)   
+         }catch(e){
+           $("#disp").empty()   
+         }   
+      }
+    </script>
+  </body>
+</html>
